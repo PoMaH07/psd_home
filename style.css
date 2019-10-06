@@ -36,22 +36,25 @@ body {
     display: flex;
     flex-wrap: wrap;
     max-width: 1200px;
+    max-height: 5.5vw;
     margin: auto;
     justify-content: space-between;
     align-items: center;
 } 
 header { /*полоса на весь экран на которой лого и навигация*/
     width: 100%;
+    max-height: 5.5vw;
     background: white;
     opacity: 0.9;
     position: absolute;
     z-index: 1;
+    padding: 20px 0 20px 0;
 }
 header ul { /*выравнием элементы внутри ul*/
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    padding: 20px 0 20px 0;
+    padding: 0;
 }
 header ul li a { /*даём ссылкам padding и другие свойства*/
     display: block;
@@ -59,6 +62,7 @@ header ul li a { /*даём ссылкам padding и другие свойст�
     color: #817a7a;
     font-family: segoe;
     padding: 5px 40px 5px 40px;
+    font-size:calc(12px + 0.21vw);
 }
 header ul li:last-child a { /*задаём последней ссылке отдельные свойства*/
     color: white;
@@ -76,12 +80,13 @@ header ul li:last-child a:active { /*меняем ей цвет при нажа�
 }
 #logo a { /*делаем логотип ссылкой, для перехода на главную страницу*/
     text-decoration: none;
-    padding: 20px 20px 20px 0;
+    padding: 20px 20px 0 0;
 }
 #logo span { /*первая часть логотипа основанная на span*/
-    font-size: 41px;
+    font-size: 50px;
     font-family: lavanda;
     color: black;
+    line-height: 25px;
 }
 #logo span:last-child { /*вторая часть логотипа, отдельный цвет*/
     color: #b73958;
@@ -100,7 +105,7 @@ header ul li:last-child a:active { /*меняем ей цвет при нажа�
     bottom: 20%;
     font-family: alte;
     text-transform: uppercase;
-    font-size: 4vw;
+    font-size:calc(25px + 3vw);
     color: white;
     text-shadow: black 0 0 2px;
 }
@@ -231,6 +236,7 @@ header ul li:last-child a:active { /*меняем ей цвет при нажа�
 .bloger { /*DIV в котором находится картинка с текстом*/
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     padding: 40px 0;
 }
 .bloger img { /*Чтобы картинка не изменялась с экраном по высоте*/
@@ -238,8 +244,10 @@ header ul li:last-child a:active { /*меняем ей цвет при нажа�
 }
 .bloger .text {
     margin-left: 3%;
+    width: 80%;
 }
 .bloger h2 {
+    display:inline-block;
     margin: 0;
     color: #404040;
     font-size: 27px;
@@ -275,7 +283,7 @@ header ul li:last-child a:active { /*меняем ей цвет при нажа�
 }
 #shirina-all .sub-menu:last-child {
     width: 28%;
-    text-align: center;
+    text-align: right;
 }
 #shirina-all .sub-menu h3 {
     margin: 0;
@@ -304,26 +312,25 @@ header ul li:last-child a:active { /*меняем ей цвет при нажа�
 #shirina-all .sub-menu:last-child span {
     display: block;
     text-align: right;
-    font-size: 0.95vw;
     font-family: univers;
     letter-spacing: 2px;
     user-select: none;
+    font-size:calc(12px + 0.3vw);
 }
 
 /*------------------------Делаем MEDIA---------------------------*/
+
+@media (max-width: 1187px) {
+    .bloger .text {
+        margin: 0;
+    }
+}
+@media(max-width: 1011px) {
+    .bloger .text {
+        width: 100%;
+    }
+}
 @media(max-width: 846px){
-    header { /*Убираем серую полосу хедера которая уходит в некуда*/
-        background: none;
-    }
-    #logonav #logo span { /*Меняем наш логотоп*/
-        color: white;
-        font-weight: bolder;
-    }
-    #logonav ul a {
-        color: white;
-        font-weight: bolder;
-        text-shadow: black 0 0 3px;
-    }
     #banner span { /*убираем нижний текст на баннере, мелкий сильно*/
         display: none;
     }
@@ -340,27 +347,10 @@ header ul li:last-child a:active { /*меняем ей цвет при нажа�
     #content2 div h3 { /*размер текста на кружке BEER*/
         font-size: 1vw;
     }
-    #logonav ul { /*центрируем нашу менюху поцентру*/
-        width: 100%;
-        justify-content: center;
-    }
 }
 @media (max-width: 685px) { /*меняем позицию текста на баннере*/
-    #banner h1 {
-        position: absolute;
-        top: 10%;
-        right: 5%;
-    }
     #content2 div h3 { /*убираем мелкий текст на кружке Beer*/
         display: none;
-    }
-    #logonav ul a { /*Чуть чуть меняем нашу менюху*/
-        font-size: 2.32vw;
-        padding: 5px 20px 5px 20px;
-    }
-    #logonav ul {
-        width: 100%;
-        justify-content: center;
     }
     #shirina-all .sub-menu h3 { /*Меняем наше Sub-Menu текста картинки и др.*/
         font-size: 3vw;
@@ -376,4 +366,35 @@ header ul li:last-child a:active { /*меняем ей цвет при нажа�
     }
 }
 
+@media (max-width: 839px) {
+    header {
+        position: static;
+    }
+    #banner img {
+        display: none;
+    }
+    #banner {
+        margin-top:calc(70px + 5vw);
+    }
+    #banner h1 {
+        color: black;
+        text-shadow: none;
+    }
+    header ul {
+        width: 100%;
+        justify-content:space-between;
+    }
+    header ul li a {
+        padding: 5px 23px 5px 23px;
+    }
+    #content-text{
+        margin: 0;
+    }
+    #content2 {
+        padding: 20px 0 20px 0;
+    }
+    #logo span {
+        font-size: 50px;
+    }
+}
 /*------------------------НУ КАК ТО ТАК   ¯\_(ツ)_/¯ ---------------------------*/
